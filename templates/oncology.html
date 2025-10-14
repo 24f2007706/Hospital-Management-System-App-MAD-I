@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oncology</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body style="background-color: #FAF3E0;">
+    <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+    <a class="navbar-brand">Department of Oncology</a>
+    </div>
+    </nav>
+
+    <p style="width: 70vw; margin-left: 15vw; margin-top: 5vw;">Oncology is a field of medicine focused on the diagnosis, treatment, and prevention of cancer. It involves a multidisciplinary team of specialists, including medical oncologists who use drugs like chemotherapy and immunotherapy, surgical oncologists who perform operations to remove tumors, and radiation oncologists who use radiation therapy.</p>
+    <table class="table table-striped" style="width: 70vw; margin-left: 15vw; margin-top: 5vw;">
+        <tr>
+            <th>Doctor Name</th>
+            <th>Actions</th>
+        </tr>
+    {% for i in doctor_data %}
+    <tr>
+        <td>{{i.doctor_name}}</td>
+        <td><a href="/viewdetails/{{i.doctor_username}}"><button type="button" class="btn btn-info">View Details</button></a>&nbsp;<a href="/checkavailability/{{i.doctor_username}}"><button type="button" class="btn btn-info">Check Availability</button></a></td>
+    </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>

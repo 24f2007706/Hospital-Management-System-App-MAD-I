@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Availability</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body style="background-color: #FAF3E0;"><nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+    <a class="navbar-brand">Select Availability</a>
+</div>
+    </nav>
+    {% for i in appointmentissue %}
+  <div class="alert alert-info alert-dismissible fade show text-center" role="alert">
+       select dates matching with doctor
+    </div>
+    {% endfor %}
+
+    {% for i in dateerror %}
+  <div class="alert alert-info alert-dismissible fade show text-center" role="alert">
+      Your selected date is different from doctors Availability. plz try again
+    </div>
+    {% endfor %}
+
+    {% for i in nodata %}
+  <div class="alert alert-info alert-dismissible fade show text-center" role="alert">
+      DR.{{doctor_data.doctor_name}} did not provided his Availability yet.
+    </div>
+    {% endfor %}
+    <form action="/checkavailability/{{doctor_data.doctor_username}}" method="POST">
+    <table class="table table-striped" style="width: 70vw; margin-left: 15vw; margin-top: 5vw;">
+    <tr>
+    <th>Dates</th>
+    <th>Timeslot</th>
+  </tr>
+    <tr>
+        <td>{{available_data.date1}}</td>
+        <td>{{available_data.morning1}}</td>
+    </tr>
+    <tr>
+        <td>{{available_data.date2}}</td>
+        <td>{{available_data.morning2}}</td>
+    </tr>
+    <tr>
+        <td>{{available_data.date3}}</td>
+        <td>{{available_data.morning3}}</td>
+    </tr>
+    <tr>
+        <td>{{available_data.date4}}</td>
+        <td>{{available_data.morning4}}</td>
+    </tr>
+    <tr>
+        <td>{{available_data.date5}}</td>
+        <td>{{available_data.morning5}}</td>
+    </tr>
+    <tr>
+        <td>{{available_data.date6}}</td>
+        <td>{{available_data.morning6}}</td>
+    </tr>
+    <tr>
+        <td>{{available_data.date7}}</td>
+        <td>{{available_data.morning7}}</td>
+    </tr>
+</table>
+<h3 style="text-align: center; font-family: 'Times New Roman', Times, serif; margin-top: 10vh; margin-bottom: 0vh;">Patient Availability</h3>
+<table class="table table-striped" style="width: 70vw; margin-left: 15vw; margin-top: 5vw;">
+    
+    <tr>
+        <th>PatientName</th>
+        <th>Date</th>
+        <th>Timeslot</th>
+    </tr>
+    <tr>
+        <td><input type="text" name="patientusername"></td>
+        <td><input type="date" name="patientdate"></td>
+        <td><input type="radio" name="patienttime" value="8:00am-12:00pm">8:00am-12:00pm &nbsp;&nbsp;<input type="radio" name="patienttime" value="4:00pm-8:00pm">4:00pm-8:00pm</td>
+    </tr>
+
+</table>
+<a href="//checkavailability/{{doctor_data.doctor_username}}"><button type="submit" class="btn btn-primary" style="margin-left: 42.5vw;">Add Patient Availability</button><br></a>
+</body>
+</form>
+</html>

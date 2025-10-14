@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Update</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body style="background-color: #FAF3E0;">
+
+    {% for i in changed %}
+  <div class="alert alert-info alert-dismissible fade show text-center" role="alert">
+       Patient Details Updated
+    </div>
+    {% endfor %}
+
+    <div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-4 shadow rounded" style="width: 300px;">
+  <form action="/editpatient/{{patient_data.patient_username}}"  method="POST">
+      <h3 style="font-family:Georgia, 'Times New Roman', Times, serif; text-align: center;">Patient Details</h3><br>
+    <div class="mb-3">
+      <label class="form-label">Patient Name</label>
+      <input type="text" class="form-control" name="name" value="{{patient_data.patient_name}}">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Patient Username</label>
+      <input type="text" class="form-control" name="username" value="{{patient_data.patient_username}}">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Patient Password</label>
+      <input type="password" class="form-control" name="password" value="{{patient_data.patient_password}}"><br>
+    <button type="submit" class="btn btn-primary" style="margin-left: 9vw;">Edit</button><br>
+  </form>
+  </div>
+  </div>
+</body>
+</html>

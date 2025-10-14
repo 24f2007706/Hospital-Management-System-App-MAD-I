@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Registered</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body style="background-color: #FAF3E0;">
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+    <a class="navbar-brand">Registered Patients</a>
+
+    <form action="/patientsearch" class="d-flex" role="search" method="POST">
+       <input class="form-control me-2" type="search" name="searched" placeholder="Patient Name" aria-label="Search" name="searched">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    </div>
+    </nav>
+
+    <div>
+<table class="table table-striped" style="width: 70vw; margin-left: 15vw; margin-top: 5vw;">
+  {% for i in nodata %}
+  <div class="alert alert-info alert-dismissible fade show text-center" role="alert">
+    No Patient Registered Till Now.
+</div>
+  {% endfor %}
+  <tr>
+    <th>Patient Id</th>
+    <th>Patient Name</th>
+    <th>Patient Username</th>
+    <th>Patient Password</th>
+    <th>Action</th>
+  </tr>
+{% for i in patient_data %}
+<tr>
+    <td>{{loop.index}}</td>
+    <td>{{i.patient_name}}</td>
+    <td>{{i.patient_username}}</td>
+    <td>{{i.patient_password}}</td>
+    <td><a href="/deletepatient/{{i.patient_id}}"><button type="button" class="btn btn-danger">Delete</button></a>&nbsp;<a href="/updatepatient/{{i.patient_id}}"><button type="button" class="btn btn-primary">Update</button></a></td>
+</tr>
+{% endfor %}
+</table>
+</div>
+
+</body>
+</html>

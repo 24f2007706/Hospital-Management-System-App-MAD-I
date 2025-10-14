@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body style="background-color: #FAF3E0;">
+    <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+    <a class="navbar-brand">Upcomming Appointments</a>
+    </div>
+    </nav>
+    {% for i in nodata %}
+    <div class="alert alert-info alert-dismissible fade show text-center" role="alert">
+    No appointment Scheduled.
+</div>
+    {% endfor %}
+
+
+    <table class="table table-striped" style="width: 70vw; margin-left: 15vw; margin-top: 5vw;">
+        <tr>
+            <th>Sno</th>
+            <th>Patient username</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Patient History</th>
+            <th>Actions</th>
+        </tr>
+        {% for i in appointment %}
+        {% if i.doctor_username==doctor_data.doctor_username %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{i.patient_username}}</td>
+            <td>{{i.date}}</td>
+            <td>{{i.time}}</td>
+            <td><a href="/updatehistory/{{i.id}}"><button type="button" class="btn btn-info">Update</button></a></td>
+            <td><a href="/canceluadoctor/{{i.id}}"><button type="button" class="btn btn-danger">Cancel</button></a>&nbsp;<a href="/complete/{{i.doctor_username}}"><button type="button" class="btn btn-success">Mark as Complete</button></a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+    </table>
+</body>
+</html>

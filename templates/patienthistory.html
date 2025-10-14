@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body style="background-color: #FAF3E0;">
+    <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+    <a class="navbar-brand">Patient Appointment History</a>
+    </div>
+    </nav>
+    {% for i in error %}
+    <div class="alert alert-info alert-dismissible fade show text-center" role="alert">
+    No History Yet
+</div>
+    {% endfor %}
+
+    <table class="table table-striped" style="width: 70vw; margin-left: 15vw; margin-top: 5vw;">
+        <tr>
+            <th>Sno</th>
+            <th>Doctor Name</th>
+            <th>Dignosis</th>
+            <th>Prescription</th>
+            <th>Test Done</th>
+        </tr>
+        {% for i in treatment %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{i.doctor_username}}</td>
+            <td>{{i.dignosis}}</td>
+            <td>{{i.prescription}}</td>
+            <td>{{i.testdone}}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</body>
+</html>

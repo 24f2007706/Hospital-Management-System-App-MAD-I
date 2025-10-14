@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body style="background-color: #FAF3E0;">
+    <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+    <a class="navbar-brand">Department of General</a>
+    </div>
+    </nav>
+
+    <p style="width: 70vw; margin-left: 15vw; margin-top: 5vw;">A General Medicine Department in a hospital serves as the first point of contact for adult patients with a wide range of medical conditions, focusing on non-surgical diagnosis and treatment. It encompasses a variety of medical specialties, handling acute and long-term illnesses by combining clinical knowledge with diagnostic tests to treat conditions affecting the heart, lungs, stomach, and more.  </p>
+    <table class="table table-striped" style="width: 70vw; margin-left: 15vw; margin-top: 5vw;">
+        <tr>
+            <th>Doctor Name</th>
+            <th>Actions</th>
+        </tr>
+    {% for i in doctor_data %}
+    <tr>
+        <td>{{i.doctor_name}}</td>
+        <td><a href="/viewdetails/{{i.doctor_username}}"><button type="button" class="btn btn-info">View Details</button></a>&nbsp;<a href="/checkavailability/{{i.doctor_username}}"><button type="button" class="btn btn-info">Check Availability</button></a></td>
+    </tr>
+    {% endfor %}
+    </table>
+
+</body>
+</html>

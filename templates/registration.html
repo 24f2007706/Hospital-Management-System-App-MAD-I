@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body style="background-color: #FAF3E0;">
+
+{% for i in alldata %}
+  <div class="alert alert-info alert-dismissible fade show text-center" role="alert">
+    User Is Already Registered. Try Logging In.
+</div>
+  {% endfor %}
+
+{% for i in adminname %}
+  <div class="alert alert-info alert-dismissible fade show text-center" role="alert">
+    Patient Cannot Use Admin In Their Details.
+</div>
+  {% endfor %}
+
+{% for i in emptyfield %}
+  <div class="alert alert-info alert-dismissible fade show text-center" role="alert">
+    Field Cannot Be Empty.
+</div>
+  {% endfor %}
+
+  {% for i in alreadyregistered %}
+  <div class="alert alert-info alert-dismissible fade show text-center" role="alert">
+    Username is Already Taken , Try Using Another Username
+</div>
+  {% endfor %}
+
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+<div class="card p-4 shadow rounded" style="width: 300px;">
+<form action="/"  method="POST" class="RegisterUser" >
+    <h3 style="font-family:Georgia, 'Times New Roman', Times, serif; text-align: center;">PATIENT REGISTRATION</h3><br>
+  <div class="mb-3">
+    <label for="PatientName" class="form-label">Name</label>
+    <input type="text" class="form-control" name="PatientName">
+  </div>
+  <div class="mb-3">
+    <label for="PatientUsername" class="form-label">Username</label>
+    <input type="text" class="form-control" name="PatientUsername">
+  </div>
+  <div class="mb-3">
+    <label for="PatientPassword" class="form-label">Password</label>
+    <input type="password" class="form-control" name="PatientPassword">
+  </div>
+  <button type="submit" class="btn btn-primary" style="margin-left: 6vw; margin-right: 6px;">Register</button><br>
+  <a href="/login" style="margin-left: 2.5vw; text-decoration: none;">I already have an accout</a>
+</form>
+</div>
+</div>
+</body>
+</html>

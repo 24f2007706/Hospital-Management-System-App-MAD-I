@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block header %}
+<title>Admin</title>
+{% endblock %}
+{% block body %}
+ <div class="d-flex justify-content-center align-items-center">
+    <div class="text-center" style="margin-top: 25vh;">
+    <div class="d-flex flex-column justify-content-center gap-3 mb-3">
+    <a href="/adddoctor"><button class="btn btn-success btn-lg" style="width:30vw;">Add Doctor</button></a>
+    <a href="/doctorregistered"><button class="btn btn-primary btn-lg" style="width:30vw">Doctor Registered</button></a>
+    <a href="/patientregistered"><button class="btn btn-primary btn-lg" style="width:30vw">Patient Registered</button></a>
+    <a href="/allappointments"><button class="btn btn-primary btn-lg" style="width:30vw">Upcomming Appointments</button></a>
+    </div>
+    </div>
+  </div>
+{% endblock %}
